@@ -12,14 +12,14 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.net.Uri.Builder;
 
-public class AppProvider extends ContentProvider {
+public class GameProvider extends ContentProvider {
     private SQLiteDatabase     sqlDB;
     private DatabaseHelper    dbHelper;
-    private static final String  DATABASE_NAME = "Users.db";
+    private static final String  DATABASE_NAME = "Game.db";
     private static final int  DATABASE_VERSION= 1;
     private static final String TABLE_NAME= "User";
     private static final String TAG = "MyContentProvider";
-    public  static  Uri AppProviderURI=Uri.parse("content://appcenter");
+    public  static  Uri AppProviderURI=Uri.parse("content://game");
     private static class DatabaseHelper extends SQLiteOpenHelper {
         DatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);

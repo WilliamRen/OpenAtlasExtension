@@ -38,8 +38,8 @@ android:versionName="1.00x7a"
         <activity android:name="com.openatlas.android.game2.main.ActivityInternalActivity">  </activity>
 
         <provider
-            android:name="com.openatlas.android.game2.AppProvider"
-            android:authorities="appcenter2"
+            android:name="com.openatlas.android.game2.GameProvider"
+            android:authorities="game"
             android:enabled="true"
             android:exported="false" >
         </provider>

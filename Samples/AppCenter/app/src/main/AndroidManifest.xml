@@ -45,7 +45,7 @@
 
         <provider
             android:name="com.openatlas.android.appcenter.AppProvider"
-            android:authorities="appcenter2"
+            android:authorities="appcenter"
             android:enabled="true"
             android:exported="false" >
         </provider>

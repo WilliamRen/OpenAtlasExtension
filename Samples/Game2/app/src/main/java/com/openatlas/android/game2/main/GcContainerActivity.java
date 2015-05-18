@@ -97,7 +97,7 @@ public class GcContainerActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent mIntent = new Intent("com.taobao.android.game2.GameStaticReceiver");
+				Intent mIntent = new Intent("com.openatlas.android.game2.GameStaticReceiver");
 				mIntent.putExtra("msg", "btnSendSTATIC msg" + System.currentTimeMillis());
 				sendBroadcast(mIntent);
 

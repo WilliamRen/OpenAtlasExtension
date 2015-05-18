@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -14,13 +15,13 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.openatlas.android.appcenter.GameReceiver;
-import com.openatlas.android.appcenter.download.GcAppDownLoadService;
 import com.openatlas.android.appcenter.R;
+import com.openatlas.android.appcenter.download.GcAppDownLoadService;
 
 
 public class GcContainerActivity extends Activity {
 	private ServiceConnection e;
-	GameReceiver mGameReceiver;
+	GameReceiver mGameReceiver=null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,7 +32,7 @@ public class GcContainerActivity extends Activity {
 		Button btnSendDY=(Button) findViewById(R.id.btnSendDY);
 		Button btnSendSTATIC=(Button) findViewById(R.id.btnSendSTATIC);
 		Button btnStartAct=(Button) findViewById(R.id.btnStartAct);
-		mGameReceiver=new GameReceiver();
+
 	
 		btnButton.setOnClickListener(new OnClickListener() {
 
@@ -55,9 +56,16 @@ public class GcContainerActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				IntentFilter mFilter=new IntentFilter("com.tmp.msg");
-			
-				registerReceiver(mGameReceiver, mFilter);
+				if (mGameReceiver==null){
+					mGameReceiver=new GameReceiver();
+					IntentFilter mFilter=new IntentFilter("com.tmp.msg");
+
+					registerReceiver(mGameReceiver, mFilter);
+					Log.d(getClass().getSimpleName(),"registerReceiver done");
+				}else {
+					Log.d(getClass().getSimpleName(),"registerReceiver repeat");
+				}
+
 				
 			}
 		});
@@ -65,7 +73,15 @@ public class GcContainerActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				unregisterReceiver(mGameReceiver);
+				if (mGameReceiver!=null)
+				{unregisterReceiver(mGameReceiver);
+					mGameReceiver=null;
+					Log.d(getClass().getSimpleName(),"unregisterReceiver done");
+				}
+				else
+				{
+					Log.d(getClass().getSimpleName(),"unregisterReceiver error");
+				}
 				
 			}
 		});
@@ -84,7 +100,7 @@ public class GcContainerActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent mIntent=new Intent("com.taobao.android.game2.GameStaticReceiver");
+				Intent mIntent=new Intent("com.openatlas.android.appcenter.GameStaticReceiver");
 				mIntent.putExtra("msg", "btnSendSTATIC msg"+System.currentTimeMillis());
 				sendBroadcast(mIntent);
 				
