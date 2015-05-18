@@ -1,5 +1,5 @@
 # OpenAtlasExtension
-OpenAtlasExtension,is extension project of OpanAtlas ,a Android Component Plugin Framework<br>The MIT License (MIT) Copyright (c) 2015 Bunny Blue
+OpenAtlasExtension,is extension project of OpenAtlas ,a Android Component Plugin Framework<br>The MIT License (MIT) Copyright (c) 2015 Bunny Blue
 
 
 
