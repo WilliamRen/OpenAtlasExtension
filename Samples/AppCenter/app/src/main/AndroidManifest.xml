@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.taobao.android.game20x7a"
+    package="com.openatlas.android.appcenter"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.taobao.android.game2.main.GcContainerActivity"
+            android:name="com.openatlas.android.appcenter.main.GcContainerActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,27 +24,27 @@
         </activity>
 
         <service
-            android:name="com.taobao.android.game2.download.GcAppDownLoadService"
+            android:name="com.openatlas.android.appcenter.download.GcAppDownLoadService"
             android:exported="false" >
             <meta-data
                 android:name="bundleLocation"
-                android:value="com.taobao.android.game2" />
+                android:value="com.openatlas.android.appcenter" />
         </service>
 
         <receiver
-            android:name="com.taobao.android.game2.GameStaticReceiver"
+            android:name="com.openatlas.android.appcenter.GameStaticReceiver"
             android:enabled="true"
             android:exported="false" >
             <intent-filter>
-                <action android:name="com.taobao.android.game2.GameStaticReceiver" >
+                <action android:name="com.openatlas.android.appcenter.GameStaticReceiver" >
                 </action>
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.taobao.android.game2.main.ActivityInternalActivity">  </activity>
+        <activity android:name="com.openatlas.android.appcenter.main.ActivityInternalActivity">  </activity>
 
         <provider
-            android:name="com.taobao.android.game2.AppProvider"
+            android:name="com.openatlas.android.appcenter.AppProvider"
             android:authorities="appcenter2"
             android:enabled="true"
             android:exported="false" >

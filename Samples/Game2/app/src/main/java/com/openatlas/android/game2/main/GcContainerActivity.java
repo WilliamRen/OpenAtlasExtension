@@ -1,23 +1,24 @@
-package com.taobao.android.game2.main;
+package com.openatlas.android.game2.main;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.taobao.android.game2.GameReceiver;
-import com.taobao.android.game2.download.GcAppDownLoadService;
-import com.taobao.android.game20x7a.R;
+import com.openatlas.android.game2.GameReceiver;
+import com.openatlas.android.game2.download.GcAppDownLoadService;
+import com.openatlas.android.game2.R;
 
 public class GcContainerActivity extends Activity {
 	private ServiceConnection e;
-	GameReceiver mGameReceiver;
+	GameReceiver mGameReceiver=null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class GcContainerActivity extends Activity {
 		Button btnSendDY = (Button) findViewById(R.id.btnSendDY);
 		Button btnSendSTATIC = (Button) findViewById(R.id.btnSendSTATIC);
 		Button btnStartAct = (Button) findViewById(R.id.btnStartAct);
-		mGameReceiver = new GameReceiver();
+
 
 		btnButton.setOnClickListener(new OnClickListener() {
 
@@ -53,9 +54,16 @@ public class GcContainerActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				IntentFilter mFilter = new IntentFilter("com.tmp.msg");
+				if (mGameReceiver==null)
+				{
+					mGameReceiver = new GameReceiver();
+					IntentFilter mFilter = new IntentFilter("com.tmp.msg");
 
-				registerReceiver(mGameReceiver, mFilter);
+					registerReceiver(mGameReceiver, mFilter);
+				}else {
+					Log.d(getClass().getSimpleName(),"mGameReceiver is registered");
+				}
+
 
 			}
 		});
@@ -63,7 +71,14 @@ public class GcContainerActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				unregisterReceiver(mGameReceiver);
+				if (mGameReceiver!=null){
+					unregisterReceiver(mGameReceiver);
+					mGameReceiver=null;
+				}else
+				{
+					Log.d(getClass().getSimpleName(),"mGameReceiver is unregistered");
+				}
+
 
 			}
 		});

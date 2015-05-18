@@ -1,4 +1,4 @@
-package com.taobao.android.game2.main;
+package com.openatlas.android.appcenter.main;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -9,8 +9,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.taobao.android.game2.AppProvider;
-import com.taobao.android.game20x7a.R;
+import com.openatlas.android.appcenter.AppProvider;
+import com.openatlas.android.appcenter.R;
+
 
 public class ActivityInternalActivity extends Activity {
 Button btnInsert;

@@ -54,7 +54,7 @@ public class MainActivity extends FragmentActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Intent mDelye = new Intent();
-            mDelye.setClassName(this, "com.taobao.android.gamecenter.main.GcContainerActivity");
+            mDelye.setClassName(this, "com.openatlas.android.appcenter.main.GcContainerActivity");
             startActivity(mDelye);
             return true;
         }

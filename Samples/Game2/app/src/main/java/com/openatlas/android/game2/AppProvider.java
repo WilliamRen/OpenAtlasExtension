@@ -1,4 +1,4 @@
-package com.taobao.android.game2;
+package com.openatlas.android.game2;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;

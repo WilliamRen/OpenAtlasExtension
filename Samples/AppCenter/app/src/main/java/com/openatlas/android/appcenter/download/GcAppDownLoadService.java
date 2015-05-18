@@ -1,4 +1,4 @@
-package com.taobao.android.game2.download;
+package com.openatlas.android.appcenter.download;
 
 import android.app.Service;
 import android.content.Intent;

@@ -1,14 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.taobao.android.game20x7a"
+    package="com.openatlas.android.game2"
   android:versionCode="1"
-android:versionName="1.0"
+android:versionName="1.00x7a"
 
 >
 
     <application android:allowBackup="true" android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher" >
         <activity
-            android:name="com.taobao.android.game2.main.GcContainerActivity"
+            android:name="com.openatlas.android.game2.main.GcContainerActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,27 +18,27 @@ android:versionName="1.0"
         </activity>
 
         <service
-            android:name="com.taobao.android.game2.download.GcAppDownLoadService"
+            android:name="com.openatlas.android.game2.download.GcAppDownLoadService"
             android:exported="false" >
             <meta-data
                 android:name="bundleLocation"
-                android:value="com.taobao.android.game2" />
+                android:value="com.openatlas.android.game2" />
         </service>
 
         <receiver
-            android:name="com.taobao.android.game2.GameStaticReceiver"
+            android:name="com.openatlas.android.game2.GameStaticReceiver"
             android:enabled="true"
             android:exported="false" >
             <intent-filter>
-                <action android:name="com.taobao.android.game2.GameStaticReceiver" >
+                <action android:name="com.openatlas.android.game2.GameStaticReceiver" >
                 </action>
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.taobao.android.game2.main.ActivityInternalActivity">  </activity>
+        <activity android:name="com.openatlas.android.game2.main.ActivityInternalActivity">  </activity>
 
         <provider
-            android:name="com.taobao.android.game2.AppProvider"
+            android:name="com.openatlas.android.game2.AppProvider"
             android:authorities="appcenter2"
             android:enabled="true"
             android:exported="false" >

@@ -1,10 +1,10 @@
-package com.taobao.android.game2;
+package com.openatlas.android.game2;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.taobao.android.game2.download.GcAppDownLoadService;
+import com.openatlas.android.game2.download.GcAppDownLoadService;
 
 public class GameReceiver extends BroadcastReceiver {
 	public GameReceiver() {
