@@ -137,7 +137,7 @@ public class InstalledAppFragment extends Fragment  implements AdapterView.OnIte
             //添加一个确定按钮
             builder.setPositiveButton(" 确 定 ", new DialogInterface.OnClickListener(){
                 public void onClick(DialogInterface dialog, int which) {
-
+                    dialog.dismiss();
                 }
             });
             //创建一个单选按钮对话框

@@ -1,4 +1,4 @@
-package com.taobao.android.game2;
+package com.openatlas.android.appcenter;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

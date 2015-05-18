@@ -1,4 +1,4 @@
-package com.taobao.android.game2.main;
+package com.openatlas.android.game2.main;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.taobao.android.game2.AppProvider;
-import com.taobao.android.game20x7a.R;
+import com.openatlas.android.game2.AppProvider;
+import com.openatlas.android.game2.R;
 
 
 public class ActivityInternalActivity extends Activity {
