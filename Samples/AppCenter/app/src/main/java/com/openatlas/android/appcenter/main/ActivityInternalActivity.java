@@ -44,7 +44,8 @@ Button btnQuery;
 	private void insertRecord(String userName) {
 		ContentValues values = new ContentValues();
 		values.put("USER_NAME", userName);
-		getContentResolver().insert(AppProvider.AppProviderURI, values);
+		Uri ret=getContentResolver().insert(AppProvider.AppProviderURI, values);
+		System.out.println("insert  is "+ret);
 	}
 	private void displayRecords() {
 		String columns[] = new String[] { "_id","USER_NAME" };

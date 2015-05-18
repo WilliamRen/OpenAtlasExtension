@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.openatlas.android.game2.AppProvider;
+import com.openatlas.android.game2.GameProvider;
 import com.openatlas.android.game2.R;
 
 
@@ -44,11 +44,11 @@ Button btnQuery;
 	private void insertRecord(String userName) {
 		ContentValues values = new ContentValues();
 		values.put("USER_NAME", userName);
-		getContentResolver().insert(AppProvider.AppProviderURI, values);
+		getContentResolver().insert(GameProvider.AppProviderURI, values);
 	}
 	private void displayRecords() {
 		String columns[] = new String[] { "_id","USER_NAME" };
-		Uri myUri = AppProvider.AppProviderURI;
+		Uri myUri = GameProvider.AppProviderURI;
 		Cursor cur = managedQuery(myUri, columns,null, null, null );
 		if (cur.moveToFirst()) {
 			String id = null;

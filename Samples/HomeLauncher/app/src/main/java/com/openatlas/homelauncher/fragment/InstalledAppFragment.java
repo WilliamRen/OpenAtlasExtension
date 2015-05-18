@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.openatlas.framework.Atlas;
 import com.openatlas.runtime.PackageLite;
@@ -125,12 +126,19 @@ public class InstalledAppFragment extends Fragment  implements AdapterView.OnIte
             //0: 默认第一个单选按钮被选中
             final String[] comp=new String[packageLite.components.size()];
                   packageLite.components.toArray(comp);
-            builder.setSingleChoiceItems(comp, 0, new AlertDialog.OnClickListener(){
+            builder.setSingleChoiceItems(comp, 0, new AlertDialog.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    String className=(String)(comp[which]);
-                    Intent mIntent=new Intent();
-                    mIntent.setClassName(getActivity(),className);
+                    String className = (String) (comp[which]);
+                    if (!className.contains("Activity"))
+                    {
+                        Toast.makeText(getActivity(),"Support Activity Only",Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                        return;
+                    }
+                    Intent mIntent = new Intent();
+                    mIntent.setClassName(getActivity(), className);
                     startActivity(mIntent);
+                    dialog.dismiss();
                 }
             });
 
@@ -140,6 +148,7 @@ public class InstalledAppFragment extends Fragment  implements AdapterView.OnIte
                     dialog.dismiss();
                 }
             });
+
             //创建一个单选按钮对话框
            builder.create().show();
 
